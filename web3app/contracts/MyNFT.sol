@@ -58,10 +58,10 @@ contract SNTGuys is ERC721, ERC721URIStorage, Ownable {
 
         uint256 newItemId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
-        existingUris[metadataUri] = 1;
+        existingUris[metadataURI] = 1;
 
         _mint(recipient, newItemId);
-        _setTokenUri(newItemId, metadataURI);
+        _setTokenURI(newItemId, metadataURI);
 
         return newItemId;
     }
