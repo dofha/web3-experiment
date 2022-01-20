@@ -18,7 +18,6 @@ const NFTImage = ({ tokenId, getCount }) => {
 
   const getMintedStatus = async () => {
     const result = await contract.isContentOwned(metadataURI);
-    console.log(result);
     setIsMinted(result);
   };
 
@@ -40,15 +39,37 @@ const NFTImage = ({ tokenId, getCount }) => {
   };
 
   return (
-    <div>
-      {isMinted && <img src={constructImageURI()}></img>}
-      <h5>ID #{tokenId}</h5>
-      {!isMinted ? (
-        <button onClick={mintToken}>Mint</button>
-      ) : (
-        <button onClick={getURI}>Taken! Show URI</button>
+    <>
+      {isMinted && (
+        <div className="card">
+          <h5 className="card-header">ID #{tokenId}</h5>
+          <div className="card-body">
+            <img src={constructImageURI()} width={200}></img>
+            <div>
+              <button onClick={getURI} className="btn btn-primary">
+                Show URI
+              </button>
+            </div>
+          </div>
+        </div>
       )}
-    </div>
+      {!isMinted && (
+        <div className="card">
+          <h5 className="card-header">ID #{tokenId}</h5>
+          <div className="card-body">
+            <img
+              src="https://www.publicdomainpictures.net/pictures/280000/velka/question-mark-1544553868vD2.jpg"
+              width={200}
+            ></img>
+            <div>
+              <button onClick={mintToken} className="btn btn-primary">
+                Mint
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

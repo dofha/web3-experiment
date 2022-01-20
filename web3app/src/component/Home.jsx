@@ -16,16 +16,18 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="p-5">
       <WalletBalance />
       <h1>Collection</h1>
-      {Array(totalMinted + 1)
-        .fill(0)
-        .map((_, i) => (
-          <div key={i}>
-            <NFTImage tokenId={i} getCount={getCount} />
-          </div>
-        ))}
+      <div className="d-flex flex-wrap">
+        {Array(totalMinted + 1)
+          .fill(0)
+          .map((_, i) => (
+            <div key={i}>
+              <NFTImage tokenId={i} getCount={getCount} />
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

@@ -22,8 +22,12 @@ module.exports = {
     artifacts: "./src/artifacts",
   },
   networks: {
-    hardhat: {
-      chainId: 1337,
+    // hardhat: {
+    //   chainId: 1337,
+    // },
+    matic: {
+      url: "",
+      accounts: [""],
     },
   },
 };

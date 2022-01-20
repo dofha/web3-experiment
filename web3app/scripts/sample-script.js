@@ -19,6 +19,7 @@ async function main() {
 
   await sntGuys.deployed();
 
+  console.log(sntGuys.deployTransaction.hash)
   console.log("SNTGuys deployed to:", sntGuys.address);
 }
 
